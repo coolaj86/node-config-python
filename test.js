@@ -2,6 +2,12 @@
 //var pyconf = require('pyconf');
 var pyconf = require('./');
 
+pyconf.readFile('doesnt-exist.conf', function (err, obj) {
+  if (!err || obj) {
+    console.error("didn't get an error (or also got an object) when testing on non-existant file");
+    process.exit(1);
+  }
+});
 pyconf.readFile('example.conf', function (err, obj) {
   if (err) {
     console.error(err.stack);
