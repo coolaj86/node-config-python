@@ -1,6 +1,6 @@
 # node-config-python
 
-Read and write python config files non-destructively (preserves comments and lines)
+Read and write python config files non-destructively (preserves comments and line-order)
 
 Turns this kind of thing:
 
