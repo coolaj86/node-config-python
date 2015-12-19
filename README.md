@@ -23,11 +23,13 @@ Into this kind of thing:
 
 (comments are stored in meta-data keys `__lines` and `__keys`)
 
-## Install & Usage
+## Install
 
 ```bash
 npm install --save pyconf
 ```
+
+## Usage
 
 ```javascript
 var pyconf = require('pyconf');
