@@ -46,13 +46,13 @@ Note: the `writeFile` function uses `safe-replace` so that it will work even in 
 
 ## API
 
-```
+```javascript
 pyconf
-  .parse(str, cb)                   => err, object
+  .parse(str, cb)                   // => err, object
   
-  .stringify(obj, cb)               => err, text
+  .stringify(obj, cb)               // => err, text
   
-  .readFile(filename, cb)           => err, object
+  .readFile(filename, cb)           // => err, object
   
-  .writeFile(filename, obj, cb)     => err 
+  .writeFile(filename, obj, cb)     // => err 
 ```
