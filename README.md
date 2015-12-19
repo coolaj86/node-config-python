@@ -47,9 +47,12 @@ Note: the `writeFile` function uses `safe-replace` so that it will work even in 
 ## API
 
 ```
-pyconf.parse(str, cb)                   => err, object
-pyconf.stringify(obj, cb)               => err, text
-
-pyconf.readFile(filename, cb)           => err, object
-pyconf.writeFile(filename, obj, cb)     => err 
+pyconf
+  .parse(str, cb)                   => err, object
+  
+  .stringify(obj, cb)               => err, text
+  
+  .readFile(filename, cb)           => err, object
+  
+  .writeFile(filename, obj, cb)     => err 
 ```
