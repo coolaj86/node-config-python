@@ -34,11 +34,12 @@ npm install --save pyconf
 ```javascript
 var pyconf = require('pyconf');
 
-# alias for fs.readFile() then pyconf.parse()
+// alias for fs.readFile() then pyconf.parse()
 pyconf.readFile("/path/to/foo.conf", function (err, obj) {
   console.log(obj);
 });
 
+// alias for pyconf.stringify() then safeReplace.writeFile()
 pyconf.writeFile("/path/to/foo.conf", obj, function (err, obj) {
   console.log("wrote file");
 });
