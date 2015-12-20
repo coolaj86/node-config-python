@@ -67,6 +67,16 @@ function parsePythonConf(str, cb) {
   // we want to be able to rewrite the file with comments, etc
   obj.__keys = keys;
   obj.__lines = lines;
+  obj.toJSON = function () {
+    var me = this;
+    var copy = {};
+    Object.keys(me).forEach(function (k) {
+      if ('__' !== k.slice(0, 2)) {
+        copy[k] =  me[k]
+      }
+    });
+    return copy;
+  };
 
   cb(null, obj);
 }
