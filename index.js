@@ -67,16 +67,6 @@ function parsePythonConf(str, cb) {
   // we want to be able to rewrite the file with comments, etc
   obj.__keys = keys;
   obj.__lines = lines;
-  obj.toJSON = function () {
-    var me = this;
-    var copy = {};
-    Object.keys(me).forEach(function (k) {
-      if ('__' !== k.slice(0, 2)) {
-        copy[k] =  me[k]
-      }
-    });
-    return copy;
-  };
 
   cb(null, obj);
 }
@@ -98,7 +88,11 @@ function toPyVal(val) {
     return val;
   }
   else if (Array.isArray(val)) {
-    return val.join(',');
+    val = val.join(',');
+    if (-1 === val.indexOf(',')) {
+      val += ','; // disambguates value from array with one element
+    }
+    return val; 
   }
 
   return val && JSON.stringify(val);
