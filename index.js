@@ -98,11 +98,7 @@ function toPyVal(val) {
     return val;
   }
   else if (Array.isArray(val)) {
-    val = val.join(',');
-    if (-1 === val.indexOf(',')) {
-      val += ','; // disambguates value from array with one element
-    }
-    return val; 
+    return val.join(',');
   }
 
   return val && JSON.stringify(val);
@@ -132,17 +128,19 @@ function stringifyPythonConf(obj, cb) {
       return;
     }
 
+    if ('[' === pykey[0]) {
+      return;
+    }
+
     // restore comments
     if (-1 !== obj.__lines[num].indexOf('#')) {
       comment = obj.__lines[num].replace(/.*?(\s*#.*)/, '$1');
     }
 
-    if ('[' === pykey[0]) {
-      return;
-    }
-
     if ('undefined' === typeof pyval) {
       obj.__lines[num] = "___DELETE_ME___";
+    } else {
+      obj.__lines[num] = pykey + ' = ' + pyval + comment;
     }
   });
 
