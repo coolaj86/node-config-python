@@ -119,6 +119,7 @@ function stringifyPythonConf(obj, cb) {
 
     if ('number' !== typeof num) {
       obj.__lines.push(pykey + ' = ' + pyval);
+      obj.__keys[key] = obj.__lines.length - 1;
       return;
     }
 
