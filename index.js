@@ -88,7 +88,11 @@ function toPyVal(val) {
     return val;
   }
   else if (Array.isArray(val)) {
-    return val.join(',');
+    val = val.join(',');
+    if (-1 === val.indexOf(',')) {
+      val += ','; // disambguates value from array with one element
+    }
+    return val; 
   }
 
   return val && JSON.stringify(val);
