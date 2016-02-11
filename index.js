@@ -4,6 +4,7 @@ var fs = require('fs');
 var sfs = require('safe-replace').create();
 
 function snakeCase(key) {
+  // TODO let user supply list of exceptions
   if ('tlsSni01Port' === key) {
     return 'tls_sni_01_port';
   }
@@ -92,7 +93,7 @@ function toPyVal(val) {
     if (-1 === val.indexOf(',')) {
       val += ','; // disambguates value from array with one element
     }
-    return val; 
+    return val;
   }
 
   return val && JSON.stringify(val);
@@ -124,6 +125,12 @@ function stringifyPythonConf(obj, cb) {
     }
 
     if ('[' === pykey[0]) {
+      return;
+    }
+
+    if (!obj.__lines[num] || !obj.__lines[num].indexOf) {
+      console.warn('[pyconf] WARN index past array length:');
+      console.log(obj.__lines.length, num, obj.__lines[num]);
       return;
     }
 
