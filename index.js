@@ -117,6 +117,12 @@ function stringifyPythonConf(obj, cb) {
     var num = obj.__keys[key];
     var comment = '';
 
+    if ('undefined' === typeof pyval) {
+      if ('number' === typeof num) {
+        obj.__lines[num] = "___DELETE_ME___";
+      }
+      return;
+    }
 
     if ('number' !== typeof num) {
       obj.__lines.push(pykey + ' = ' + pyval);
