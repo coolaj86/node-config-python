@@ -141,7 +141,7 @@ function stringifyPythonConf(obj, cb) {
     }
 
     // restore comments
-    if (-1 !== obj.__lines[num].indexOf('#')) {
+    if (num in obj.__lines && -1 !== obj.__lines[num].indexOf('#')) {
       comment = obj.__lines[num].replace(/.*?(\s*#.*)/, '$1');
     }
 
