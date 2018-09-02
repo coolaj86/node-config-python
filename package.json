@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/coolaj86/node-config-python#readme",
   "dependencies": {
-    "safe-replace": "^1.0.2"
+    "safe-replace": "1.0.2"
   }
 }
