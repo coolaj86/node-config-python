@@ -1,4 +1,9 @@
-# node-config-python
+# This fork of [pyconf.js](https://git.coolaj86.com/coolaj86/pyconf.js) is unmaintained.
+
+Please see the official repository at <https://git.coolaj86.com/coolaj86/pyconf.js>
+
+# [pyconf.js](https://git.coolaj86.com/coolaj86/pyconf.js)
+<small>formerly `node-config-python`</small>
 
 Read and write python config files non-destructively (preserves comments and line-order)
 
@@ -52,10 +57,10 @@ Note: the `writeFile` function uses `safe-replace` so that it will work even in 
 ```javascript
 pyconf
   .parse(str, cb)                   // => err, object
-  
+
   .stringify(obj, cb)               // => err, text
-  
+
   .readFile(filename, cb)           // => err, object
-  
-  .writeFile(filename, obj, cb)     // => err 
+
+  .writeFile(filename, obj, cb)     // => err
 ```
